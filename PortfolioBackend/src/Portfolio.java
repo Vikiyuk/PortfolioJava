@@ -35,12 +35,15 @@ public class Portfolio {
             if (temp.getSymbol().equals(name)) {
                 if(!(newQuantity.equals(new BigDecimal(-1)))) {
                     temp.setQuantity(newQuantity);
+
                 }
                 if (!(newPrice.equals(new BigDecimal(-1)))) {
                     temp.setPricePerShare(stock.getPricePerShare());
                 }
+                System.out.println("Estimated change: "+(Portfolio.calculateValue(temp).subtract(Portfolio.calculateValue(stock))));
             }
         }
+
     }
 
     public void removeStock(String symbol) {

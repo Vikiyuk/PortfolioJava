@@ -1,6 +1,8 @@
 
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
@@ -12,6 +14,9 @@ public class Main {
         boolean exit=false;
         Scanner input=new Scanner(System.in);
         Portfolio portfolio = new Portfolio();
+        Comparator comparatorPrice=new SortByPrice();
+        Comparator comparatorQuantity=new SortByQuantity();
+        Comparator comparatorSymbol=new SortBySymbol();
         while (!exit){
 
             printMenu();
@@ -39,7 +44,28 @@ public class Main {
                     portfolio.addStock(stock);
                     break;
                 case "2":
-                    portfolio.showPortfolio();
+                    System.out.println("Select options to sort(1-Price,2-Quantity,3-Symbol,4-default)");
+                    inputNumber=input.nextLine();
+                    switch (inputNumber){
+                        case "1":
+                            Collections.sort(portfolio.list,comparatorPrice);
+                            portfolio.showPortfolio();
+                            break;
+                        case "2":
+                            Collections.sort(portfolio.list,comparatorQuantity);
+                            portfolio.showPortfolio();
+                            break;
+                        case "3":
+                            Collections.sort(portfolio.list,comparatorSymbol);
+                            portfolio.showPortfolio();
+                            break;
+                        case "4":
+                            portfolio.showPortfolio();
+                            break;
+                        default:
+                            System.out.println("Incorrect option");
+                    }
+
                     System.out.println("Press enter to proceed");
                     input.nextLine();
                     break;

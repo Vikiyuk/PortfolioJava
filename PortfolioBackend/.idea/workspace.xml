@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9599a65-a963-4349-8e96-1bd070092dff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Portfolio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Portfolio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortByPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortByPrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortByQuantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortByQuantity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortBySymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortBySymbol.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "git-widget-placeholder": "stock",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
