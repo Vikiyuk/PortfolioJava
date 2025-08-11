@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) {
         boolean exit=false;
         Scanner input=new Scanner(System.in);
+        Portfolio portfolio = new Portfolio();
         while (!exit){
-            Portfolio portfolio = new Portfolio();
+
             printMenu();
             String inputNumber= input.nextLine();
             switch (inputNumber){
@@ -22,6 +23,7 @@ public class Main {
                     System.out.println("Enter stock quantity");
                     String stockQuantity = input.nextLine();
                     Stock stock = new Stock(stockSymbol,new BigDecimal(stockPrice),new BigDecimal(stockQuantity));
+
                     portfolio.addStock(stock);
                     break;
                 case "2":

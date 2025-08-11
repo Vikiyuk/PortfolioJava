@@ -4,8 +4,9 @@ import java.util.ArrayList;
 public class Portfolio {
     public ArrayList<Stock> list = new ArrayList<>();
 
-    public void addStock(Stock stock) {
-        list.add(stock);
+    public void addStock(Stock stock2) {
+        this.list.add(stock2);
+
     }
 
     public static BigDecimal calculateValue (Stock stock) {
@@ -14,7 +15,7 @@ public class Portfolio {
 
     public void showPortfolio () {
         BigDecimal totalValue = new BigDecimal(0);
-        for (Stock stock : list) {
+        for (Stock stock : this.list) {
             System.out.println(stock.getSymbol() + " " + stock.getQuantity() + " " + stock.getPricePerShare());
             totalValue = totalValue.add(Portfolio.calculateValue(stock));
         }
@@ -43,11 +44,7 @@ public class Portfolio {
     }
 
     public void removeStock(String symbol) {
-        for (Stock temp:list){
-            if (temp.getQuantity().equals(symbol)){
-                list.remove(temp);
-            }
-        }
+        list.removeIf(temp -> temp.getSymbol().equals(symbol));
     }
 
 }
