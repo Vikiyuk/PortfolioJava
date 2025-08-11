@@ -42,8 +42,12 @@ public class Portfolio {
         }
     }
 
-    public void removeStock(Stock stock) {
-        list.remove(stock);
+    public void removeStock(String symbol) {
+        for (Stock temp:list){
+            if (temp.getQuantity().equals(symbol)){
+                list.remove(temp);
+            }
+        }
     }
 
 }
