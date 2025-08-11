@@ -1,3 +1,5 @@
+package PortfolioBackend.src;
+
 import java.math.BigDecimal;
 
 public class Stock {
