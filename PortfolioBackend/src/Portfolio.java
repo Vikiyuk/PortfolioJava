@@ -47,4 +47,13 @@ public class Portfolio {
         list.removeIf(temp -> temp.getSymbol().equals(symbol));
     }
 
+    public boolean ifExists(String symbol){
+        for (Stock stock:list){
+            if (stock.getSymbol().equals(symbol)){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
