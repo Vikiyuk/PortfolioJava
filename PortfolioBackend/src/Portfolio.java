@@ -5,7 +5,18 @@ public class Portfolio {
     public ArrayList<Stock> list = new ArrayList<>();
 
     public void addStock(Stock stock) {
-        this.list.add(stock);
+        if (ifExists(stock.getSymbol())){
+            for (Stock temp: list){
+                if( temp.getSymbol().equals(stock.getSymbol())){
+                    temp.setQuantity(stock.getQuantity().add(temp.getQuantity()));
+                    temp.setPricePerShare(stock.getPricePerShare().add(temp.getPricePerShare()));
+                }
+            }
+        }
+        else{
+            this.list.add(stock);
+        }
+
 
     }
 
