@@ -27,28 +27,14 @@ public class Main {
                     String stockSymbol = input.nextLine();
                     System.out.println("Enter stock price");
                     String stockPrice = input.nextLine();
-                    if (!isFloat(stockPrice))
+                    if (!isCorrect(stockPrice))
                     {
-                        System.out.println("Incorrect input, try again.");
-                        sleep(1000);
-                        continue;
-                    }
-                    if (new BigDecimal(stockPrice).compareTo(new BigDecimal("0"))<0){
-                        System.out.println("Stock price is less than 0");
-                        sleep(1000);
                         continue;
                     }
                     System.out.println("Enter stock quantity");
                     String stockQuantity = input.nextLine();
-                    if (!isFloat(stockQuantity))
+                    if (!isCorrect(stockQuantity))
                     {
-                        System.out.println("Incorrect input, try again.");
-                        sleep(1000);
-                        continue;
-                    }
-                    if (new BigDecimal(stockQuantity).compareTo(new BigDecimal("0"))<0){
-                        System.out.println("Stock quantity is less than 0");
-                        sleep(1000);
                         continue;
                     }
                     Stock stock = new Stock(stockSymbol,new BigDecimal(stockPrice),new BigDecimal(stockQuantity));
@@ -84,41 +70,21 @@ public class Main {
                 case "3":
                     System.out.println("Enter stock symbol to update");
                     String stockSymbolUpdate = input.nextLine();
-                    if(portfolio.ifExists(stockSymbolUpdate)){
-                        portfolio.removeStock(stockSymbolUpdate);
-                    }else{
+                    if(!portfolio.ifExists(stockSymbolUpdate)){
                         System.out.println("Stock doesn't exist, dummy");
                         sleep(1000);
                         continue;
                     }
                     System.out.println("Enter stock price to update(or -1 to leave it as it is)");
                     String stockPriceUpdate = input.nextLine();
-                    if (!isFloat(stockPriceUpdate))
+                    if (!isCorrect(stockPriceUpdate))
                     {
-                        System.out.println("Incorrect input, try again.");
-                        sleep(1000);
-                        continue;
-                    }
-                    if (new BigDecimal(stockPriceUpdate).compareTo(new BigDecimal("0"))<0
-                    && new BigDecimal(stockPriceUpdate).compareTo(new BigDecimal("-1"))!=0
-                    ){
-                        System.out.println("Stock price is less than 0");
-                        sleep(1000);
                         continue;
                     }
                     System.out.println("Enter stock quantity to update(or -1 to leave it as it is)");
                     String stockQuantityUpdate=input.nextLine();
-                    if (!isFloat(stockQuantityUpdate))
+                    if (!isCorrect(stockQuantityUpdate))
                     {
-                        System.out.println("Incorrect input, try again.");
-                        sleep(1000);
-                        continue;
-                    }
-                    if (new BigDecimal(stockQuantityUpdate).compareTo(new BigDecimal("0"))<0
-                            && new BigDecimal(stockQuantityUpdate).compareTo(new BigDecimal("-1"))!=0
-                    ){
-                        System.out.println("Stock quantity is less than 0");
-                        sleep(1000);
                         continue;
                     }
                     Stock stockUpdate = new Stock(stockSymbolUpdate,new BigDecimal(stockPriceUpdate),new BigDecimal(stockQuantityUpdate));
@@ -132,7 +98,6 @@ public class Main {
                     }else{
                         System.out.println("Stock doesn't exist, dummy");
                         sleep(1000);
-
                     }
 
                     break;

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Portfolio {
     public ArrayList<Stock> list = new ArrayList<>();
 
-    public void addStock(Stock stock2) {
-        this.list.add(stock2);
+    public void addStock(Stock stock) {
+        this.list.add(stock);
 
     }
 
@@ -30,17 +30,17 @@ public class Portfolio {
         String name = stock.getSymbol();
         BigDecimal newPrice = stock.getPricePerShare();
         BigDecimal newQuantity = stock.getQuantity();
-
-        for (Stock temp : list) {
+        for (Stock temp : this.list) {
             if (temp.getSymbol().equals(name)) {
-                if(!(newQuantity.equals(new BigDecimal(-1)))) {
+                System.out.println("Estimated change: "+(Portfolio.calculateValue(temp).subtract(Portfolio.calculateValue(stock))));
+                if(!(newQuantity.equals(new BigDecimal("-1")))) {
                     temp.setQuantity(newQuantity);
 
                 }
-                if (!(newPrice.equals(new BigDecimal(-1)))) {
+                if (!(newPrice.equals(new BigDecimal("-1")))) {
                     temp.setPricePerShare(stock.getPricePerShare());
                 }
-                System.out.println("Estimated change: "+(Portfolio.calculateValue(temp).subtract(Portfolio.calculateValue(stock))));
+
             }
         }
 
